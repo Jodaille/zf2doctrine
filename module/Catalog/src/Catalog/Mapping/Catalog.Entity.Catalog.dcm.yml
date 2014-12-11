@@ -1,0 +1,35 @@
+Catalog\Entity\Catalog:
+    type: entity
+    table: catalogs
+    repositoryClass: Catalog\Repository\CatalogRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        name:
+            type: string
+            length: 255
+            nullable: true
+        version:
+            type: string
+            length: 255
+            nullable: true
+        current_version:
+            type: smallint
+            nullable: true
+        created_at:
+            type: datetime
+            nullable: false
+        updated_at:
+            type: datetime
+            nullable: false
+    oneToMany:
+        catalogspages:
+            targetEntity: Catalog\Entity\CatalogPage
+            mappedBy: catalog
+            cascade: ["persist"]
+    lifecycleCallbacks:
+        prePersist: [ prePersist ]
+        preUpdate: [ preUpdate ]

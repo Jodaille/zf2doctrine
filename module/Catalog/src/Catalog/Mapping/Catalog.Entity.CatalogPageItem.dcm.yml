@@ -1,0 +1,30 @@
+Catalog\Entity\CatalogPageItem:
+    type: entity
+    table: catalogs_pages_items
+    repositoryClass: Catalog\Repository\CatalogPageItemRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        type:
+            type: string
+            nullable: true
+        externid:
+            type: integer
+            nullable: true
+        displayorder:
+            type: integer
+            nullable: true
+
+    manyToOne:
+        catalogpage:
+            targetEntity: Catalog\Entity\CatalogPage
+            inversedBy: pageitems
+            joinColumn:
+                name: page_id
+                referencedColumnName: id
+    lifecycleCallbacks:
+        prePersist: [ prePersist ]
+        preUpdate: [ preUpdate ]

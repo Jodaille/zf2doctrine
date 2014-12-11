@@ -1,0 +1,35 @@
+Catalog\Entity\CatalogPage:
+    type: entity
+    table: catalogs_pages
+    repositoryClass: Catalog\Repository\CatalogPageRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        number:
+            type: string
+            length: 6
+            nullable: true
+        created_at:
+            type: datetime
+            nullable: false
+        updated_at:
+            type: datetime
+            nullable: false
+    manyToOne:
+        catalog:
+            targetEntity: Catalog\Entity\Catalog
+            inversedBy: catalogspages
+            joinColumn:
+                name: catalog_id
+                referencedColumnName: id
+    oneToMany:
+        catalogpageitems:
+            targetEntity: Catalog\Entity\CatalogPageItem
+            mappedBy: catalogpage
+            cascade: ["persist"]
+    lifecycleCallbacks:
+        prePersist: [ prePersist ]
+        preUpdate: [ preUpdate ]
