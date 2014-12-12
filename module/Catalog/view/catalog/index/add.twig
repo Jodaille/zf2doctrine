@@ -1,0 +1,12 @@
+<form action="{{ url(addcatalog)}}" method="POST">
+
+  <input type="hidden" name="catalogid" value="{{ catalog.getId() }}" />
+
+  <label for="catalogname">Nom du catalogue</label>
+  <input type="text" name="catalogname" value="{{ catalog.getName() }}" /><br />
+
+  <label for="catalogversion">Version</label>
+  <input type="text" name="catalogversion" value="{{ catalog.getVersion() }}" /><br />
+
+  <input type="submit" value="add" />
+</form>

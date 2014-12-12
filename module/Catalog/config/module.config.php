@@ -33,6 +33,16 @@ return array(
                     ),
                 ),
             ),
+            'addcatalog' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/catalog/add',
+                    'defaults' => array(
+                        'controller' => 'Catalog\Controller\Index',
+                        'action'     => 'add',
+                    ),
+                ),
+            ),
 	  ),
 	),
     // Doctrine config
