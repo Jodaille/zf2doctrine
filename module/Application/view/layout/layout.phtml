@@ -1,0 +1,19 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?php echo $this->headTitle('Zf2doctrine')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+    </head>
+    <body>
+        <div class="container">
+            <?php echo $this->content; ?>
+            <hr>
+            <footer>
+                <p><a href="https://github.com/Jodaille/zf2doctrine/fork">Fork me</a> on GITHUB ! :)</p>
+            </footer>
+        </div> <!-- /container -->
+        <?php echo $this->inlineScript() ?>
+    </body>
+</html>
