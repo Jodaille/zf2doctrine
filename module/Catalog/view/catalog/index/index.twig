@@ -1,4 +1,11 @@
+
 <h1>Catalogue {{ catalog.getVersion() }}</h1>
 <p>Nom du catalogue: <u>{{ catalog.getName() }}</u> </p>
 
-<p>Catologue nommé "test" a pour id : <strong>{{ testCatalog.getId() }}</strong> </p>
+{% if testCatalog.getId() %}
+    <p>Catologue nommé "test" a pour id : <strong>{{ testCatalog.getId() }}</strong> </p>
+{% else %}
+    <p>Catologue nommé "test" n'existe pas</p>
+{% endif %}
+
+<a href="{{ url('addcatalog') }}" >Ajouter</a> un catalogue.
