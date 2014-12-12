@@ -6,6 +6,16 @@ return array(
             'Catalog\Controller\Index' => 'Catalog\Controller\IndexController'
         ),
     ),
+    'service_manager' => array(
+        'shared' => array(
+            // Usually, you'll only indicate services that should _NOT_ be
+            // shared -- i.e., ones where you want a different instance
+            // every time.
+        ),
+        'factories' => array(
+            'catalog' => 'Catalog\Factory\CatalogFactory',
+        ),
+    ),
     'view_manager' => array(
         'template_path_stack' => array(
             __DIR__ . '/../view',
