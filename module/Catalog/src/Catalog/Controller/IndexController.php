@@ -18,7 +18,12 @@ class IndexController extends AbstractActionController
         
         $catalog = $catalogRepository->find($catalog_id);
 
-        return new ViewModel(array('catalog' => $catalog));
+        $factory 	= $this->getServiceLocator()->get('catalog');
+        $testCatalog 	= $factory->getCatalog($name = 'test');
+
+        return new ViewModel(array('catalog' => $catalog,
+				   'testCatalog' => $testCatalog,
+				  ));
     }
 
     public function getEntityManager()
