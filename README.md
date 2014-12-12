@@ -23,7 +23,7 @@ php composer.phar update
 rename or duplicate the file 
 **doctrine.local.php.dist.dist** to **doctrine.local.php**
 
-in **config/autoload** directory
+in **config/[autoload]** directory 
 
 Then edit values for database access: dbname, user, password ...
 
@@ -32,15 +32,15 @@ Update database schema:
 php public/index.php  orm:schema-tool:update --force
 ```
 
-Database will be updated form entities (module/Catalog/src/Catalog/Entity).
+Database will be updated form [Entities].
 
 ### Manage database with YAML schema definition
 
-You will find some samples in module/Catalog/src/Catalog/Mapping directory.
+You will find some samples in [Mapping] directory.
 
 File naming is important, for example: 
 
-* Catalog.Entity.Catalog.dcm.yml
+* [Catalog.Entity.Catalog.dcm.yml]
 
 **Catalog** is namespace, followed by **Entity**, followed by Table (Entity) name , then **.dcm.yml**
 
@@ -62,3 +62,8 @@ Then create an Index controller:
 ```sh
 ./vendor/zendframework/zftool/zf.php create controller Index Catalog
 ```
+
+[autoload]:https://github.com/Jodaille/zf2doctrine/tree/master/config/autoload
+[Entities]:https://github.com/Jodaille/zf2doctrine/tree/master/module/Catalog/src/Catalog/Entity
+[Mapping]:https://github.com/Jodaille/zf2doctrine/tree/master/module/Catalog/src/Catalog/Mapping
+[Catalog.Entity.Catalog.dcm.yml]:https://github.com/Jodaille/zf2doctrine/blob/master/module/Catalog/src/Catalog/Entity/Catalog.php
