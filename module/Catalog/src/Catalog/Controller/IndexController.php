@@ -7,12 +7,27 @@ use Zend\View\Model\ViewModel;
 
 class IndexController extends AbstractActionController
 {
+    protected $em;
 
     public function indexAction()
     {
-        return new ViewModel();
+	$pageid        = $this->params()->fromPost('pageid', FALSE);
+	$catalog_id    = $this->params('id', 1);
+
+	$catalogRepository = $this->getEntityManager()->getRepository('Catalog\Entity\Catalog');
+        
+        $catalog = $catalogRepository->find($catalog_id);
+
+        return new ViewModel(array('catalog' => $catalog));
     }
 
+    public function getEntityManager()
+    {
+        if (null === $this->em) {
+            $this->em = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
+        }
+        return $this->em;
+    }
 
 }
 
